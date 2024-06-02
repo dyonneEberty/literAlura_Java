@@ -25,4 +25,28 @@ public class Book {
         this.language = String.join("," , bookData.languages());
         this.download_count = bookData.download_count();
     }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getAuthorName() {
+        return authorName;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public Integer getDownload_count() {
+        return download_count;
+    }
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
+    }
 }
