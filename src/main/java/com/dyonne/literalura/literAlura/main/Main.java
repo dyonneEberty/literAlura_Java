@@ -86,5 +86,36 @@ public class Main {
 
     private void getAllBooks() {
         var books = bookService.getAllBooks();
+        if (!books.isEmpty()) {
+            books.forEach(System.out::println);
+        } else {
+            System.out.println("There are currently no books registered, select option 1 to register a book!");
+        }
+    }
+
+    private void  getAllAuthors() {
+        var authors = bookService.getAllAuthors();
+        if (!authors.isEmpty()) {
+            authors.forEach(System.out::println);
+        } else {
+            System.out.println("There are currently no authors registered, select option 1 to register a book to get the author!");
+        }
+    }
+
+    private void getAuthorsAliveIn() {
+        System.out.println("Insert the year you want to search: ");
+        String year = scanner.nextLine();
+
+        var authorAliveIn = bookService.getAuthorsAliveIn(year);
+        if (!authorAliveIn.isEmpty()) {
+            authorAliveIn.forEach(System.out::println);
+        } else {
+            System.out.println("No registered author was alive this year!");
+        }
+    }
+
+    private void getBooksByLanguage() {
+        var booksByLanguage = bookService.getBookByLanguage();
+        booksByLanguage.forEach(System.out::println);
     }
 }
