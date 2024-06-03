@@ -1,0 +1,19 @@
+src/main/java/com/example/app
+|-- main
+|   |-- Main.java
+|-- model
+|   |-- AuthorData.java
+|   |-- Author.java
+|   |-- BookData.java
+|   |-- Book.java
+|   |-- ResultsData.java
+|-- repository
+|   |-- AuthorRepository.java
+|   |-- BookRepository.java
+|-- service
+|   |-- BookService.java
+|   |-- ConvertData.java
+|   |-- HttpService.java
+|   |
+|   |-- LiterAluraApplication.java
+
