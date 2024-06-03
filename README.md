@@ -44,9 +44,9 @@ Here I'll add some other features that have been suggested by the Alura team. If
 
 ## Demo
 
--
+https://github.com/dyonneEberty/literAlura_Java/assets/129393744/5eefe6af-0b5d-47d6-8d66-a24d76a90ada
 
 ## Badge
 Badge that indicates that I have finished the challenge.
 
-![badge literalura]()
+![badge literalura](https://github.com/dyonneEberty/literAlura_Java/blob/main/exemple/badge%20literalura.png?raw=true)
