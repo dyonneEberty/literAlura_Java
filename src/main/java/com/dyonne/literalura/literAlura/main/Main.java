@@ -1,5 +1,8 @@
 package com.dyonne.literalura.literAlura.main;
 
+import com.dyonne.literalura.literAlura.model.Book;
+import com.dyonne.literalura.literAlura.model.BookData;
+import com.dyonne.literalura.literAlura.model.ResultsData;
 import com.dyonne.literalura.literAlura.service.BookService;
 import com.dyonne.literalura.literAlura.service.ConvertData;
 import com.dyonne.literalura.literAlura.service.HttpService;
@@ -28,5 +31,51 @@ public class Main {
                 0 - Exit
                 ######################################################
                 """;
+
+        int option = -1;
+
+        while (option != 0) {
+            System.out.println(menu);
+            option = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (option) {
+                case 1:
+                    getBook();
+                    break;
+                case 2:
+                    getAllBooks();
+                    break;
+                case 3:
+                    getAllAuthors();
+                case 4:
+                    getAuthorsAliveIn();
+                    break;
+                case 5:
+                    getBooksByLanguage();
+                case 0:
+                    System.out.println("Finishing the search...");
+           }
+        }
+    }
+
+    private BookData getBookData() {
+        String urlStart = "https://gutendex.com//books?search=";
+        System.out.println("Enter the name of the book to search: ");
+        String bookTitle = scanner.nextLine();
+
+        var bookJson = getDataApi.getApi(urlStart + bookTitle.toLowerCase().replace(" ", "%20"));
+        ResultsData resultsData = converter.getData(bookJson, ResultsData.class);
+        BookData bookData = resultsData.results().get(0);
+
+        return bookData;
+    }
+
+    private void getBook() {
+        BookData bookData = getBookData();
+        Book book = new Book(bookData);
+
+
+        // getting the first author in the array inside bookData and putting him into the Author class
     }
 }

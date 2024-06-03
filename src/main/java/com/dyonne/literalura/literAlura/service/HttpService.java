@@ -8,7 +8,7 @@ import java.net.http.HttpResponse;
 
 public class HttpService {
 
-    public String getApiData (String url) {
+    public String getApi(String url) {
         HttpClient client = HttpClient.newBuilder()
                 .followRedirects(HttpClient.Redirect.ALWAYS)
                 .build();
