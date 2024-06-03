@@ -65,7 +65,7 @@ public class BookService {
         if (languages.size() == 1) {
             languages.forEach(System.out::println);
         } else {
-            languages.forEach(l -> System.out.println(l + ", "));
+            languages.forEach(l -> System.out.println(l + "- "));
         }
 
         System.out.println("} ");

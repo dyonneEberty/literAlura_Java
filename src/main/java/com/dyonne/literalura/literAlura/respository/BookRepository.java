@@ -12,6 +12,7 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 
     @Query("SELECT DISTINCT b.language FROM Book b ORDER BY b.language")
     List<String> languages();
+
     @Query("SELECT b FROM Book b WHERE language = :language")
     List<Book> booksByLanguage(String language);
 }

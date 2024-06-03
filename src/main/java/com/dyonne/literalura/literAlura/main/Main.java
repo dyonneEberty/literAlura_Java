@@ -1,8 +1,6 @@
 package com.dyonne.literalura.literAlura.main;
 
-import com.dyonne.literalura.literAlura.model.Book;
-import com.dyonne.literalura.literAlura.model.BookData;
-import com.dyonne.literalura.literAlura.model.ResultsData;
+import com.dyonne.literalura.literAlura.model.*;
 import com.dyonne.literalura.literAlura.service.BookService;
 import com.dyonne.literalura.literAlura.service.ConvertData;
 import com.dyonne.literalura.literAlura.service.HttpService;
@@ -76,6 +74,17 @@ public class Main {
         Book book = new Book(bookData);
 
 
-        // getting the first author in the array inside bookData and putting him into the Author class
+        // getting the first element in the array inside bookData and putting him into the Author class
+        var firstAuthor = bookData.authors().get(0);
+        AuthorData authorData = new AuthorData(firstAuthor.name(), firstAuthor.birth_year(), firstAuthor.death_year());
+        Author author = new Author(authorData);
+
+        book.setAuthor(author);
+        bookService.saveBook(book);
+        System.out.println(book);
+    }
+
+    private void getAllBooks() {
+        var books = bookService.getAllBooks();
     }
 }
