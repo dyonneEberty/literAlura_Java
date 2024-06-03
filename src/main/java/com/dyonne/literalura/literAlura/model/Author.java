@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "authors")
@@ -23,8 +24,9 @@ public class Author {
 
     public Author() {}
     public Author(AuthorData authorData) {
-        String[] author = authorData.name().split(",");
-        this.name = author[1] + " " + author[0];
+//        String[] author = authorData.name().split(",");
+//        this.name = author[1] + " " + author[0];
+        this.name = authorData.name();
         this.birth_year = authorData.birth_year();
         this.death_year = authorData.death_year();
     }
@@ -48,5 +50,15 @@ public class Author {
     public void setBooks(Book book) {
         this.books.add(book);
         book.setAuthor(this);
+    }
+
+    @Override
+    public String toString() {
+        return "----------------------------" +
+                "\nName= " + name +
+                "\nBirth_year= " + birth_year +
+                "\nDeath_year= " + death_year +
+                "\nBooks= " + books.stream().map(b -> b.getTitle()).collect(Collectors.toList()) +
+                "\n----------------------------";
     }
 }

@@ -49,4 +49,14 @@ public class Book {
     public void setAuthor(Author author) {
         this.author = author;
     }
+
+    @Override
+    public String toString() {
+        return  "----------------------------" +
+                "\nTitle= " + title +
+                "\nAuthorName= " + authorName +
+                "\nLanguage= " + language +
+                "\nDownload count= " + download_count +
+                "\n----------------------------";
+    }
 }

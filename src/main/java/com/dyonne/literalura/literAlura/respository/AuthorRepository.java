@@ -10,6 +10,6 @@ public interface AuthorRepository extends JpaRepository<Author, Long> {
 
     Author findByNameContainingIgnoreCase(String name);
 
-    @Query("SELECT a FROM Author a FROM a.death_year >= :year AND :year >= a.birth_year")
+    @Query("SELECT a FROM Author a WHERE a.death_year >= :year AND :year >= a.birth_year")
     List<Author> authorsAliveIn(String year);
 }
